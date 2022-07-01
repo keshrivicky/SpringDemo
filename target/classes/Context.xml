@@ -12,13 +12,70 @@
          http://www.springframework.org/schema/tx/spring-tx-4.0.xsd
          http://www.springframework.org/schema/aop
          http://www.springframework.org/schema/aop/spring-aop-4.0.xsd">
- 
- <context:annotation-config />
- <bean name="airtel"  class="com.firstApplication.firstApplication.Airtel">
-</bean>
-<bean name="jio"  class="com.firstApplication.firstApplication.Jio">
-</bean>
 
-<bean name="subss"  class="com.firstApplication.firstApplication.Subscription">
-</bean>
- </beans>
+	<context:annotation-config />
+	<bean name="airtel"
+		class="com.firstApplication.firstApplication.Airtel">
+
+	</bean>
+	<bean name="jio" class="com.firstApplication.firstApplication.Jio">
+	
+		<!-- <bean name="jio" class="com.firstApplication.firstApplication.Jio" 
+			p:data="250" p:name="test" > -->
+
+		<!-- <property name="data" value="200" /> <property name="name" value="Vicky 
+			Keshri" /> -->
+
+		<property name="data">
+			<value>150</value>
+		</property>
+		<property name="name">
+			<value>Vicky </value>
+		</property>
+		<!-- List  -->
+		<property name="fullName">
+		<list>
+		<value>abc</value>
+		<value>bcd</value>
+		<value>def</value>
+		</list>
+		</property>
+		<!-- Set  -->
+		<property name="rollNo">
+		<set>
+		<value>1</value>
+		<value>2</value>
+		<value>3</value>
+		</set>
+		</property>
+		<!-- Map  -->
+		<property name="sub">
+		<map>
+		<entry key="hn" value="Hindi"></entry>
+		<entry key="eng" value="English"></entry>
+		<entry key="phy" value="Physics"></entry>
+		<entry key="chem" value="Chem"></entry>
+		</map>
+		</property>
+		
+			<!-- Reference Object  -->
+		<property name="subscription">
+		<ref bean="subss"/>
+		</property>
+		
+	</bean>
+
+	<bean name="subss"
+		class="com.firstApplication.firstApplication.Subscription">
+		<property name="name">
+		<value>xyz</value>
+		</property>
+	</bean>
+	
+	
+	
+	
+	
+	
+	
+</beans>

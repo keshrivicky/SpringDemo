@@ -3,8 +3,8 @@ package com.firstApplication.firstApplication;
 import org.springframework.beans.factory.annotation.Autowired;
 
 public class Airtel implements Sim{
+		
 	
-	@Autowired
 	Subscription sub;
 	
 	public void stateName() {
@@ -20,6 +20,7 @@ public class Airtel implements Sim{
 	public void Subscription() {
 		System.out.println("Subscription");
 		sub.getNetflix();
+		//System.out.println(sub.data);
 		
 	}
 
