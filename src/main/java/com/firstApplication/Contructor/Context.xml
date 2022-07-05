@@ -2,6 +2,7 @@
 	xmlns:context="http://www.springframework.org/schema/context"
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xmlns:p="http://www.springframework.org/schema/p"
+	xmlns:c="http://www.springframework.org/schema/c"
 	xmlns:tx="http://www.springframework.org/schema/tx"
 	xsi:schemaLocation="
          http://www.springframework.org/schema/beans
@@ -13,71 +14,59 @@
          http://www.springframework.org/schema/aop
          http://www.springframework.org/schema/aop/spring-aop-4.0.xsd">
 
-	<context:annotation-config />
-	<bean name="airtel"
-		class="com.firstApplication.firstApplication.Airtel">
-
+	<bean name="subscription" class="com.firstApplication.Contructor.Subscription">
+	<constructor-arg name="name">
+	<value>Subscription name</value>
+	</constructor-arg>
 	</bean>
-	<bean name="jio" class="com.firstApplication.firstApplication.Jio">
 	
-		<!-- <bean name="jio" class="com.firstApplication.firstApplication.Jio" 
-			p:data="250" p:name="test" > -->
-
-		<!-- <property name="data" value="200" /> <property name="name" value="Vicky 
-			Keshri" /> -->
-
-		<property name="data">
-			<value>150</value>
-		</property>
-		<property name="name">
-			<value>Vicky </value>
-		</property>
+	<bean name="jio" class="com.firstApplication.Contructor.Jio" init-method="init" destroy-method="destroy" c:name="VICKY" >
+	
+		<constructor-arg name="data" value="150" />
+		
+	
+		
 		<!-- List  -->
-		<property name="fullName">
+		<constructor-arg name="fullName">
 		<list>
 		<value>abc</value>
 		<value>bcd</value>
 		<value>def</value>
 		</list>
-		</property>
+		</constructor-arg>
 		<!-- Set  -->
-		<property name="rollNo">
+		<constructor-arg name="rollNo">
 		<set>
 		<value>1</value>
 		<value>2</value>
 		<value>3</value>
 		</set>
-		</property>
+		</constructor-arg>
 		<!-- Map  -->
-		<property name="sub">
+		<constructor-arg name="sub">
 		<map>
 		<entry key="hn" value="Hindi"></entry>
 		<entry key="eng" value="English"></entry>
 		<entry key="phy" value="Physics"></entry>
 		<entry key="chem" value="Chem"></entry>
 		</map>
-		</property>
+		</constructor-arg>
 		
 			<!-- Reference Object  -->
-		<property name="subscription">
-		<ref bean="subss"/>
-		</property>
+		<constructor-arg name="subscription">
+		<ref bean="subscription"/>
+		</constructor-arg>
 		
-		<property name="properties">
+		<constructor-arg name="properties">
 		<props>
 		<prop key="userName">root</prop>
-		<prop key="password">password</prop>
+		<prop key="password">Admin</prop>
 		</props>
 		
-		</property>
+		</constructor-arg>
 		
 	</bean>
-
-	<bean name="subss"
-		class="com.firstApplication.firstApplication.Subscription">
-		<property name="name">
-		<value>xyz</value>
-		</property>
-	</bean>
 		
+	
+	
 </beans>

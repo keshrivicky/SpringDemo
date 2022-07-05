@@ -63,6 +63,14 @@
 		<ref bean="subss"/>
 		</property>
 		
+		<property name="properties">
+		<props>
+		<prop key="userName">root</prop>
+		<prop key="password">password</prop>
+		</props>
+		
+		</property>
+		
 	</bean>
 
 	<bean name="subss"
@@ -71,11 +79,5 @@
 		<value>xyz</value>
 		</property>
 	</bean>
-	
-	
-	
-	
-	
-	
-	
+		
 </beans>

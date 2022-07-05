@@ -2,6 +2,7 @@ package com.firstApplication.firstApplication;
 
 import java.util.List;
 import java.util.Map;
+import java.util.Properties;
 import java.util.Set;
 
 public class Jio implements Sim{
@@ -11,8 +12,19 @@ public class Jio implements Sim{
 	List<String> fullName;
 	Set<String> rollNo;
 	Map<String,String> sub;
-	
 	Subscription subscription;
+	Properties properties;
+	
+	public Properties getProperties() {
+		return properties;
+	}
+
+	public void setProperties(Properties properties) {
+		System.out.println("Setter properties");
+		this.properties = properties;
+	}
+
+	
 
 	
 	//Primitive data type
@@ -86,8 +98,10 @@ public class Jio implements Sim{
 	@Override
 	public String toString() {
 		return "Jio [data=" + data + ", name=" + name + ", fullName=" + fullName + ", rollNo=" + rollNo + ", sub=" + sub
-				+ ", subscription=" + subscription + "]";
+				+ ", properties=" + properties + ", subscription=" + subscription + "]";
 	}
+
+	
 
 	
 
