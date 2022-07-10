@@ -7,35 +7,35 @@ import java.util.Set;
 
 import org.springframework.beans.factory.annotation.InitDestroyAnnotationBeanPostProcessor;
 
-public class Jio implements Sim{
+public class Jio implements Sim {
 
 	int data;
 	String name;
 	List<String> fullName;
 	Set<String> rollNo;
-	Map<String,String> sub;
-	Subscription subscription;
+	Map<String, String> sub;
 	Properties properties;
 	
-	
+	Subscription subscription;
+
 	public void init() {
 		System.out.println("Init Method calling !!");
 
 	}
-	
+
 	public void destroy() {
 		System.out.println("destroy Method calling !!");
 
 	}
-	
+
 	public void stateName() {
 		System.out.println("jharkhand");
-		
+
 	}
 
 	public void topUpAmount() {
 		System.out.println("100");
-		
+
 	}
 
 	public Jio() {
@@ -47,7 +47,7 @@ public class Jio implements Sim{
 			Subscription subscription, Properties properties) {
 		super();
 		System.out.println("Inside Contructor");
-		
+
 		this.data = data;
 		this.name = name;
 		this.fullName = fullName;
@@ -56,6 +56,5 @@ public class Jio implements Sim{
 		this.subscription = subscription;
 		this.properties = properties;
 	}
-	
+
 }
-	

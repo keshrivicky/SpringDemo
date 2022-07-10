@@ -1,42 +1,39 @@
 package com.firstApplication.Contructor;
 
-import java.util.List;
-import java.util.Vector;
+import org.springframework.beans.factory.InitializingBean;
 
-public class Airtel implements Sim{
-		
-	List<String> fullName;
+public class Airtel {
 	
-	Subscription sub;
- 
+	Subscription subscription;
+
 	public Airtel() {
 		super();
 		// TODO Auto-generated constructor stub
 	}
 	
-	public Airtel(List<String> fullName,Subscription sub) {
+	
+	public Airtel(Subscription subscription) {
 		super();
-		this.fullName = fullName;
-		this.sub = sub;
+		System.out.println("Airtel Contructor calling !!");
+		this.subscription = subscription;
 	}
 
+	public Subscription getSubscription() {
+		return subscription;
+	}
 	
 	
-	public void stateName() {
-		System.out.println("Bihar");
-		
+	public void setSubscription(Subscription subscription) {
+		System.out.println("Airtel Setter calling !!");
+		this.subscription = subscription;
 	}
 
-	public void topUpAmount() {
-		System.out.println("150");
-		
+	@Override
+	public String toString() {
+		return "Airtel [subscription=" + subscription + "]";
 	}
 	
-	public void Subscription() {
-		System.out.println("Subscription");
-		sub.getNetflix();
-		//System.out.println(sub.data);
-		
-	}
+	
+	
 
 }

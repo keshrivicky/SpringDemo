@@ -18,82 +18,31 @@
          http://www.springframework.org/schema/util/spring-util.xsd">
 
 
-	<util:list list-class="java.util.LinkedList" id="linkedList">
-		<value>abc</value>
-		<value>bcd</value>
-		<value>def</value>
-		<value>def</value>
-	</util:list>
+	<context:annotation-config />
 
-	<util:set set-class="java.util.HashSet" id="hashSet">
-		<value>abc</value>
-		<value>bcd</value>
-		<value>def</value>
-		<value>def</value>
-	</util:set>
-
-	<util:map map-class="java.util.HashMap" id="hashmap">
-		<entry key="hn" value="Hindi"></entry>
-		<entry key="eng" value="English"></entry>
-		<entry key="phy" value="Physics"></entry>
-		<entry key="chem" value="Chem"></entry>
-		<entry key="computer" value="computer- Science"></entry>
-	</util:map>
-	<util:properties id="prop">
-		<prop key="userName">root</prop>
-		<prop key="password">Admin</prop>
-		<prop key="Driver-class">Mysql</prop>
-	</util:properties>
-	
-	
-	<bean name="subscri"
+	<!-- <bean name="subscription1"
 		class="com.firstApplication.Contructor.Subscription">
-		<constructor-arg name="name">
-			<value>Subscription name</value>
-		</constructor-arg>
+		<property name="name" value="General_member"></property>
+	</bean> -->
+
+
+	 <bean name="subscription" class="com.firstApplication.Contructor.Subscription"> 
+		<property name="name" value="prime_member"></property> </bean>
+
+
+
+	<!-- <bean name="airtel" class="com.firstApplication.Contructor.Airtel" 
+		autowire="byName"> </bean> -->
+	<!-- <bean name="airtel" class="com.firstApplication.Contructor.Airtel" 
+		autowire="byType"> </bean> -->
+
+	<bean name="airtel" class="com.firstApplication.Contructor.Airtel"
+		autowire="byName">
 	</bean>
-
-	<bean name="airtel" class="com.firstApplication.Contructor.Airtel">
-		<constructor-arg name="fullName">
-			<ref bean="linkedList" />
-		</constructor-arg>
-
-		<constructor-arg name="sub">
-			<ref bean="subscri" />
-		</constructor-arg>
-	</bean>
-
-	<bean name="jio" class="com.firstApplication.Contructor.Jio"
-		init-method="init" destroy-method="destroy" c:name="VICKY">
-
-		<constructor-arg name="data" value="150" />
-
-
-
-		<!-- List -->
-		<constructor-arg name="fullName">
-			<ref bean="linkedList" />
-		</constructor-arg>
-		<!-- Set -->
-		<constructor-arg name="rollNo">
-			<ref bean="hashSet" />
-		</constructor-arg>
-		<!-- Map -->
-		<constructor-arg name="sub">
-			<ref bean="hashmap" />
-		</constructor-arg>
-
-		<!-- Reference Object -->
-		<constructor-arg name="subscription">
-			<ref bean="subscri" />
-		</constructor-arg>
-
-		<constructor-arg name="properties">
-			<ref bean="prop" />
-		</constructor-arg>
-
-	</bean>
-
+	
+	<!-- <bean name="airtel1" class="com.firstApplication.Contructor.Airtel"
+		autowire="byType">
+	</bean> -->
 
 
 </beans>
