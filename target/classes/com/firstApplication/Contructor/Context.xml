@@ -3,6 +3,7 @@
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xmlns:p="http://www.springframework.org/schema/p"
 	xmlns:c="http://www.springframework.org/schema/c"
+	xmlns:util="http://www.springframework.org/schema/util"
 	xmlns:tx="http://www.springframework.org/schema/tx"
 	xsi:schemaLocation="
          http://www.springframework.org/schema/beans
@@ -12,61 +13,87 @@
          http://www.springframework.org/schema/tx
          http://www.springframework.org/schema/tx/spring-tx-4.0.xsd
          http://www.springframework.org/schema/aop
-         http://www.springframework.org/schema/aop/spring-aop-4.0.xsd">
+         http://www.springframework.org/schema/aop/spring-aop-4.0.xsd
+         http://www.springframework.org/schema/util
+         http://www.springframework.org/schema/util/spring-util.xsd">
 
-	<bean name="subscription" class="com.firstApplication.Contructor.Subscription">
-	<constructor-arg name="name">
-	<value>Subscription name</value>
-	</constructor-arg>
-	</bean>
-	
-	<bean name="jio" class="com.firstApplication.Contructor.Jio" init-method="init" destroy-method="destroy" c:name="VICKY" >
-	
-		<constructor-arg name="data" value="150" />
-		
-	
-		
-		<!-- List  -->
-		<constructor-arg name="fullName">
-		<list>
+
+	<util:list list-class="java.util.LinkedList" id="linkedList">
 		<value>abc</value>
 		<value>bcd</value>
 		<value>def</value>
-		</list>
-		</constructor-arg>
-		<!-- Set  -->
-		<constructor-arg name="rollNo">
-		<set>
-		<value>1</value>
-		<value>2</value>
-		<value>3</value>
-		</set>
-		</constructor-arg>
-		<!-- Map  -->
-		<constructor-arg name="sub">
-		<map>
+		<value>def</value>
+	</util:list>
+
+	<util:set set-class="java.util.HashSet" id="hashSet">
+		<value>abc</value>
+		<value>bcd</value>
+		<value>def</value>
+		<value>def</value>
+	</util:set>
+
+	<util:map map-class="java.util.HashMap" id="hashmap">
 		<entry key="hn" value="Hindi"></entry>
 		<entry key="eng" value="English"></entry>
 		<entry key="phy" value="Physics"></entry>
 		<entry key="chem" value="Chem"></entry>
-		</map>
-		</constructor-arg>
-		
-			<!-- Reference Object  -->
-		<constructor-arg name="subscription">
-		<ref bean="subscription"/>
-		</constructor-arg>
-		
-		<constructor-arg name="properties">
-		<props>
+		<entry key="computer" value="computer- Science"></entry>
+	</util:map>
+	<util:properties id="prop">
 		<prop key="userName">root</prop>
 		<prop key="password">Admin</prop>
-		</props>
-		
+		<prop key="Driver-class">Mysql</prop>
+	</util:properties>
+	
+	
+	<bean name="subscri"
+		class="com.firstApplication.Contructor.Subscription">
+		<constructor-arg name="name">
+			<value>Subscription name</value>
 		</constructor-arg>
-		
 	</bean>
-		
-	
-	
+
+	<bean name="airtel" class="com.firstApplication.Contructor.Airtel">
+		<constructor-arg name="fullName">
+			<ref bean="linkedList" />
+		</constructor-arg>
+
+		<constructor-arg name="sub">
+			<ref bean="subscri" />
+		</constructor-arg>
+	</bean>
+
+	<bean name="jio" class="com.firstApplication.Contructor.Jio"
+		init-method="init" destroy-method="destroy" c:name="VICKY">
+
+		<constructor-arg name="data" value="150" />
+
+
+
+		<!-- List -->
+		<constructor-arg name="fullName">
+			<ref bean="linkedList" />
+		</constructor-arg>
+		<!-- Set -->
+		<constructor-arg name="rollNo">
+			<ref bean="hashSet" />
+		</constructor-arg>
+		<!-- Map -->
+		<constructor-arg name="sub">
+			<ref bean="hashmap" />
+		</constructor-arg>
+
+		<!-- Reference Object -->
+		<constructor-arg name="subscription">
+			<ref bean="subscri" />
+		</constructor-arg>
+
+		<constructor-arg name="properties">
+			<ref bean="prop" />
+		</constructor-arg>
+
+	</bean>
+
+
+
 </beans>

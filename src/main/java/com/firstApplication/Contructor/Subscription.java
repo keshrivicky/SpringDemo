@@ -19,8 +19,11 @@ public class Subscription {
 
 	
 	
-	public String getName() {
-		return name;
+	
+
+	@Override
+	public String toString() {
+		return "Subscription [name=" + name + "]";
 	}
 
 	public void setName(String name) {
